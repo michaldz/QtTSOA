@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>938</width>
-    <height>567</height>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>390</y>
+      <x>820</x>
+      <y>330</y>
       <width>64</width>
       <height>23</height>
      </rect>
@@ -229,6 +229,9 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxY">
      <property name="geometry">
@@ -238,6 +241,9 @@
        <width>62</width>
        <height>27</height>
       </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxX">
@@ -249,6 +255,9 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxR">
      <property name="geometry">
@@ -258,6 +267,9 @@
        <width>62</width>
        <height>27</height>
       </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_9">
@@ -373,6 +385,9 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
     </widget>
     <widget class="QLabel" name="label_13">
      <property name="geometry">
@@ -448,6 +463,9 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
     </widget>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
@@ -482,7 +500,7 @@
       <x>460</x>
       <y>260</y>
       <width>341</width>
-      <height>131</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -523,6 +541,18 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>ForbiddenCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEditHost">
      <property name="geometry">
@@ -532,6 +562,9 @@
        <width>113</width>
        <height>27</height>
       </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_16">
@@ -563,7 +596,7 @@
     <widget class="QLabel" name="label_18">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>100</y>
        <width>111</width>
        <height>31</height>
@@ -582,8 +615,37 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="maximum">
       <number>10000</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>130</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Czas połączenia</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelTime">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>130</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </widget>

@@ -43,6 +43,7 @@ public:
 
    int c;
    int d;
+   int secCounter;
    //Metody pomocnicze
    //****
    void SpeedPlotDisplay();
@@ -53,13 +54,13 @@ public:
    void StartAlgorithm();
    void CheckConn();
    void Time();
+   void TimeCounter();
+
     
 private slots:
 
 
-    void on_pushButton_2_clicked();
 
-    void on_pushButton_3_clicked();
     void run();
     void run2();
 

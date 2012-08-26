@@ -89,6 +89,9 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->lineEditConn->setText(QString :: fromUtf8("Rozłączony"));
         ui->lineEditHost->setText("localhost");
         ui->spinBoxPort->setValue(6665);
+        ui->pushButtonDisconnect->setDisabled(true);
+        ui->pushButtonStop->setDisabled(true);
+        ui->pushButtonStart->setDisabled(true);
 
 
 
@@ -101,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent) :
 Test *t;
 Algorithm *b;
 bool start = false;
+
 
 //connect to Player & interface set
 //PlayerCc::PlayerClient robot("localhost",6665);
@@ -132,7 +136,50 @@ void MainWindow::Time()
             QTime time = QTime::currentTime();
             QString timeString = time.toString();
 
-            ui->statusBar->showMessage(dateString + " " + timeString + " , " + "Gotowy do Pracy");
+            ui->statusBar->showMessage(dateString + " " + timeString + ", " + "Gotowy do Pracy");
+
+
+}
+void MainWindow::TimeCounter()
+{
+
+    QString timeSec, timeMin, timeHou;
+   //QString roz = "Rozłączony";
+
+
+    if(ui->lineEditConn->text()  != QString :: fromUtf8("Połączony"))
+    {
+     secCounter = 0;
+    }
+    else
+    {
+     secCounter++;
+    }
+    if(secCounter<60){
+    timeSec.setNum(secCounter);
+
+    ui->labelTime->setText(timeSec + "s");
+        }
+    else if(secCounter < 3600)
+    {
+        timeMin.setNum(secCounter/60);
+        timeSec.setNum(secCounter%60);
+
+        ui->labelTime->setText(timeMin + "m" + " " + timeSec + "s");
+
+    }
+    else
+    {
+        timeHou.setNum(secCounter/3600);
+        timeMin.setNum(secCounter%3600/60);
+        timeSec.setNum((secCounter%3600/60)%60);
+
+        ui->labelTime->setText(timeHou + "h" + " " + timeMin + "m" + " " + timeSec + "s");
+
+
+    }
+
+
 
 
 }
@@ -157,6 +204,9 @@ void MainWindow::ConnectToPlayer()
     {
 
         ui->lineEditConn->setText(QString :: fromUtf8("Połączony"));
+        ui->pushButtonDisconnect->setDisabled(false);
+        ui->pushButtonConnect->setDisabled(true);
+        ui->pushButtonStart->setDisabled(false);
 
         p2dProxy = new PlayerCc::Position2dProxy(robot,0);
         laserProxy = new PlayerCc::LaserProxy(robot,0);
@@ -181,6 +231,9 @@ void MainWindow::ConnectToPlayer()
 void MainWindow::StartAlgorithm(){
 
 
+
+    ui->pushButtonStop->setDisabled(false);
+    ui->pushButtonStart->setDisabled(true);
     //enable motors
 
             p2dProxy->SetMotorEnable(1);
@@ -214,24 +267,9 @@ void MainWindow::StartAlgorithm(){
 
 
 
-void MainWindow::on_pushButton_2_clicked()
-{
-
-    //t.start();
-    //t.wait();
-
-   ui->lcdNumber->display(b->distanceToTarget);
 
 
 
-}
-
-void MainWindow::on_pushButton_3_clicked()
-{
-    // ui->lcdNumber->display(t.zmienna);
-    //cSin->setSamples(x,y,c);
-OrientationView();
-}
 void MainWindow::run()
 {
     ui->lcdNumber->display(c);
@@ -254,6 +292,7 @@ void MainWindow::run()
 void MainWindow::run2(){
 
     Time();
+    TimeCounter();
 
     if(start == true){
     if(b->CheckRun()){
@@ -343,6 +382,10 @@ b->exit();
 
 sleep(1);
 p2dProxy->SetSpeed(0,0);
+LcdDisplay();
+
+ui->pushButtonStop->setDisabled(true);
+ui->pushButtonStart->setDisabled(false);
 }
 
 void MainWindow::on_pushButtonExit_clicked()
@@ -371,6 +414,10 @@ void MainWindow::on_pushButtonDisconnect_clicked()
 {
 
 robot->~PlayerClient();
-if(robot->Connected() == false) {ui->lineEditConn->setText(QString :: fromUtf8("disPołączony"));}
+if(robot->Connected() == false) {ui->lineEditConn->setText(QString :: fromUtf8("Rozłączony"));
+ui->pushButtonConnect->setDisabled(false);
+ui->pushButtonDisconnect->setDisabled(true);
+ui->pushButtonStart->setDisabled(true);
+}
 
 }
