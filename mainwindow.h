@@ -52,7 +52,7 @@ public:
    void ConnectToPlayer();
    void StartAlgorithm();
    void CheckConn();
-
+   void Time();
     
 private slots:
 

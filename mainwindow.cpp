@@ -10,6 +10,7 @@
 #include <QTextCodec>
 #include <QString>
 #include <QGraphicsTextItem>
+#include <QDateTime>
 
 ////***
 #include "Laser.h"
@@ -86,6 +87,11 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->doubleSpinBoxT->setValue(0.01);
         ui->doubleSpinBoxT->setValue(0.1);
         ui->lineEditConn->setText(QString :: fromUtf8("Rozłączony"));
+        ui->lineEditHost->setText("localhost");
+        ui->spinBoxPort->setValue(6665);
+
+
+
 
 
 
@@ -112,6 +118,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::Time()
+{
+
+
+
+
+            QDate date = QDate::currentDate();
+            QString dateString = date.toString();
+
+
+
+            QTime time = QTime::currentTime();
+            QString timeString = time.toString();
+
+            ui->statusBar->showMessage(dateString + " " + timeString + " , " + "Gotowy do Pracy");
+
+
+}
+
 void MainWindow::CheckConn(){
 
 
@@ -127,7 +152,7 @@ void MainWindow::ConnectToPlayer()
 
     try{
 
-    robot = new PlayerCc::PlayerClient("localhost",6665);
+    robot = new PlayerCc::PlayerClient(ui->lineEditHost->text().toStdString(),ui->spinBoxPort->value());
     if(robot->Connected())
     {
 
@@ -144,6 +169,7 @@ void MainWindow::ConnectToPlayer()
     {
 
         QMessageBox::about(this,QString :: fromUtf8("Błąd Połaczenia"),QString::fromStdString(e.GetErrorStr()));
+
 
     }
     /*
@@ -177,7 +203,7 @@ void MainWindow::StartAlgorithm(){
 
            a->tolerancy = ui->doubleSpinBoxT->value();
            b = a;
-          a->start();
+           a->start();
 
 
 
@@ -226,6 +252,8 @@ void MainWindow::run()
 }
 
 void MainWindow::run2(){
+
+    Time();
 
     if(start == true){
     if(b->CheckRun()){

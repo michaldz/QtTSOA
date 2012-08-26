@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>934</width>
-    <height>551</height>
+    <width>938</width>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TSOAA v1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>330</y>
+      <x>860</x>
+      <y>390</y>
       <width>64</width>
       <height>23</height>
      </rect>
@@ -479,10 +479,10 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>250</y>
-      <width>251</width>
-      <height>81</height>
+      <x>460</x>
+      <y>260</y>
+      <width>341</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="title">
@@ -491,8 +491,8 @@
     <widget class="QPushButton" name="pushButtonConnect">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>20</y>
+       <x>10</x>
+       <y>50</y>
        <width>97</width>
        <height>27</height>
       </rect>
@@ -504,8 +504,8 @@
     <widget class="QPushButton" name="pushButtonDisconnect">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>50</y>
+       <x>10</x>
+       <y>90</y>
        <width>97</width>
        <height>27</height>
       </rect>
@@ -517,11 +517,73 @@
     <widget class="QLineEdit" name="lineEditConn">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>50</y>
+       <x>180</x>
+       <y>100</y>
        <width>113</width>
        <height>27</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEditHost">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>40</y>
+       <width>113</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>40</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Host</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>70</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Port</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>100</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Status</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBoxPort">
+     <property name="geometry">
+      <rect>
+       <x>218</x>
+       <y>70</y>
+       <width>71</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>10000</number>
      </property>
     </widget>
    </widget>
@@ -531,7 +593,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>934</width>
+     <width>938</width>
      <height>25</height>
     </rect>
    </property>

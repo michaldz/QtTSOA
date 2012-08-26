@@ -79,7 +79,7 @@ void Algorithm::run(){
 
 
     do{
-
+         onRun = true;
 
         robot->Read();
 
@@ -92,7 +92,7 @@ void Algorithm::run(){
 
 
             this->sleep(0.1);
-            onRun = true;
+
             if (onTarget == true || runAlgo == false)
             {
             onRun = false;
