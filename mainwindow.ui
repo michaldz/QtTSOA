@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,6 +15,9 @@
   </property>
   <property name="windowTitle">
    <string>TSOAA v1.0</string>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLCDNumber" name="lcdNumber">
@@ -109,12 +115,12 @@
      <rect>
       <x>90</x>
       <y>260</y>
-      <width>131</width>
+      <width>171</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Aktualna Prędkość</string>
+     <string>Aktualna Prędkość [m/s]</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -122,12 +128,12 @@
      <rect>
       <x>90</x>
       <y>300</y>
-      <width>121</width>
+      <width>161</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Dystans do celu</string>
+     <string>Dystans do celu [m]</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -153,46 +159,46 @@
      </rect>
     </property>
     <property name="text">
-     <string>Przebyta droga</string>
+     <string>Przebyta droga [m]</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>440</y>
-      <width>67</width>
-      <height>21</height>
+      <x>10</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>X:</string>
+     <string>[m]</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>440</y>
-      <width>67</width>
+      <x>470</x>
+      <y>230</y>
+      <width>31</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Y:</string>
+     <string>[sec]</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>50</x>
       <y>420</y>
-      <width>161</width>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Wsp. położenia robota</string>
+     <string>Wsp. położenia robota X, Y: </string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -205,7 +211,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Wykres Pędkości/Dystansu do celu od czasu</string>
+     <string>Wykres Pędkości*10/Dystansu do celu od czasu</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
@@ -467,7 +473,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15">
+    <widget class="QLabel" name="labelTime_2">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -580,7 +586,7 @@
       <string>Host</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_17">
+    <widget class="QLabel" name="labelPort">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -593,7 +599,7 @@
       <string>Port</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_18">
+    <widget class="QLabel" name="labelStat">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -622,7 +628,7 @@
       <number>10000</number>
      </property>
     </widget>
-    <widget class="QLabel" name="label_19">
+    <widget class="QLabel" name="labelConnTime">
      <property name="geometry">
       <rect>
        <x>60</x>

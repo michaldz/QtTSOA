@@ -48,18 +48,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //
          scene = new QGraphicsScene;
-
-         QString filename = "neptun.png";
-
-         QImage image(filename);
+         LoadPictures();
 
 
-
-         QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-          scene->addItem(item);
-
-          ui->orientationGraphicsView->setScene(scene);
-          ui->orientationGraphicsView->show();
     //Funkcje inicjalizujące połaczenie
        // ConnectToPlayer();
 
@@ -77,6 +68,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
         c=0; //zmienna pomocnicza cSpeedPlot
         d=0;
+        route = 0;
         QTextCodec::setCodecForCStrings(QTextCodec::codecForName("Windows-1250"));
 
         //inicjalizacja początkowych wartoci
@@ -120,6 +112,35 @@ player_pose2d_t target_point;
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::LoadPictures(){
+
+
+
+
+
+
+     try
+     {
+
+     QString filename = "neptun.png";
+
+     QImage image(filename);
+     QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+     scene->addItem(item);
+      }
+     catch(...)
+     {
+        QMessageBox::about(this,QString :: fromUtf8("Błąd pliku"),QString::fromStdString("Błąd pliku"));
+
+     }
+
+
+
+     ui->orientationGraphicsView->setScene(scene);
+     ui->orientationGraphicsView->show();
+
 }
 
 void MainWindow::Time()
@@ -210,6 +231,7 @@ void MainWindow::ConnectToPlayer()
 
         p2dProxy = new PlayerCc::Position2dProxy(robot,0);
         laserProxy = new PlayerCc::LaserProxy(robot,0);
+        route = 0;
 
 
     }
@@ -218,7 +240,7 @@ void MainWindow::ConnectToPlayer()
     catch(PlayerCc::PlayerError & e)
     {
 
-        QMessageBox::about(this,QString :: fromUtf8("Błąd Połaczenia"),QString::fromStdString(e.GetErrorStr()));
+        QMessageBox::about(this,QString :: fromUtf8("Błąd"),QString::fromStdString(e.GetErrorStr()));
 
 
     }
@@ -261,6 +283,13 @@ void MainWindow::StartAlgorithm(){
 
 
 }
+void MainWindow::RouteCalculate(){
+
+
+route = route + 0.1 * b->GetSpeed();
+ui->lcdDistanceDo->display(route);
+
+}
 
 
 
@@ -281,6 +310,7 @@ void MainWindow::run()
      SpeedPlotDisplay();
      OrientationView();
      LcdDisplay();
+     RouteCalculate();
     }
 
     ///Sprawdzanie stanu algorytmu

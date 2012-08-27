@@ -40,6 +40,7 @@ public:
    double y[100000];
    double x1[100000];
    double y1[100000];
+   double route;
 
    int c;
    int d;
@@ -55,6 +56,8 @@ public:
    void CheckConn();
    void Time();
    void TimeCounter();
+   void LoadPictures();
+   void RouteCalculate();
 
     
 private slots:
