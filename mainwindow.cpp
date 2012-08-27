@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
         c=0; //zmienna pomocnicza cSpeedPlot
         d=0;
         route = 0;
+        runTime = 0;
         QTextCodec::setCodecForCStrings(QTextCodec::codecForName("Windows-1250"));
 
         //inicjalizacja początkowych wartoci
@@ -232,6 +233,7 @@ void MainWindow::ConnectToPlayer()
         p2dProxy = new PlayerCc::Position2dProxy(robot,0);
         laserProxy = new PlayerCc::LaserProxy(robot,0);
         route = 0;
+        runTime = 0;
 
 
     }
@@ -291,7 +293,18 @@ ui->lcdDistanceDo->display(route);
 
 }
 
+void MainWindow::CheckMaxTime(){
 
+    if(ui->radioButtonMaxTime->isChecked() && runTime > ui->spinBoxMaxTime->value()){
+
+        runTime = 0;
+        on_pushButtonStop_clicked();
+
+    }
+
+
+
+}
 
 
 
@@ -324,11 +337,13 @@ void MainWindow::run2(){
     Time();
     TimeCounter();
 
+
     if(start == true){
     if(b->CheckRun()){
 
-
+        CheckMaxTime();
         PlotDisplay();
+        runTime++;
 
     }
 
@@ -443,11 +458,14 @@ ConnectToPlayer();
 void MainWindow::on_pushButtonDisconnect_clicked()
 {
 
+if(start == true) {on_pushButtonStop_clicked();}
+
 robot->~PlayerClient();
 if(robot->Connected() == false) {ui->lineEditConn->setText(QString :: fromUtf8("Rozłączony"));
 ui->pushButtonConnect->setDisabled(false);
 ui->pushButtonDisconnect->setDisabled(true);
 ui->pushButtonStart->setDisabled(true);
+
 }
 
 }

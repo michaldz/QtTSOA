@@ -45,6 +45,7 @@ public:
    int c;
    int d;
    int secCounter;
+   double runTime;
    //Metody pomocnicze
    //****
    void SpeedPlotDisplay();
@@ -58,6 +59,7 @@ public:
    void TimeCounter();
    void LoadPictures();
    void RouteCalculate();
+   void CheckMaxTime();
 
     
 private slots:

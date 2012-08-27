@@ -417,8 +417,14 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
      <property name="text">
       <string>Kryterium aspiracji</string>
+     </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -446,8 +452,11 @@
      <property name="text">
       <string>Osiągnięcie celu</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_3">
+    <widget class="QRadioButton" name="radioButtonMaxTime">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -460,30 +469,30 @@
       <string>Maksymalny czas obliczeń</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>180</y>
-       <width>62</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-    </widget>
     <widget class="QLabel" name="labelTime_2">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>46</x>
        <y>180</y>
-       <width>67</width>
+       <width>91</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Czas:</string>
+      <string>Czas [sec]:</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBoxMaxTime">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>180</y>
+       <width>59</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>999999</number>
      </property>
     </widget>
    </widget>
