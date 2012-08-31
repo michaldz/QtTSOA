@@ -9,6 +9,7 @@
 #include "qwt_plot.h"
 #include "qwt_plot_curve.h"
 #include <QGraphicsScene>
+#include <QtGui/QRadioButton>
 
 
 
@@ -26,6 +27,7 @@ public:
     //wykres orientacji
     QwtPlotCurve *cOrientation;
     QGraphicsScene *scene;//scena dla orientacji
+
 
     /////****
     explicit MainWindow(QWidget *parent = 0);
@@ -82,6 +84,10 @@ private slots:
     void on_pushButtonConnect_clicked();
 
     void on_pushButtonDisconnect_clicked();
+
+    void on_radioButton_pressed();
+
+    void on_doubleSpinBoxObsDis_valueChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

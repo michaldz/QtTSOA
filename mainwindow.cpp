@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
          LoadPictures();
 
 
+
     //Funkcje inicjalizujące połaczenie
        // ConnectToPlayer();
 
@@ -85,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->pushButtonDisconnect->setDisabled(true);
         ui->pushButtonStop->setDisabled(true);
         ui->pushButtonStart->setDisabled(true);
+        ui->doubleSpinBoxObsDis->setValue(0.1);
 
 
 
@@ -270,6 +272,7 @@ void MainWindow::StartAlgorithm(){
             target_point.pa = ui->doubleSpinBoxR->value();
 
 
+
             robot->Read();
            // p2dProxy->SetSpeed(1,0);
 
@@ -279,6 +282,9 @@ void MainWindow::StartAlgorithm(){
            start = true;
 
            a->tolerancy = ui->doubleSpinBoxT->value();
+           a->SetTabuListSize(ui->spinBoxTabuList->value());
+           a->SetAcceptObstacleDistance(ui->doubleSpinBoxObsDis->value());
+
            b = a;
            a->start();
 
@@ -327,8 +333,15 @@ void MainWindow::run()
     }
 
     ///Sprawdzanie stanu algorytmu
-    if(b->CheckRun() == false){ start = false; }
+    if(b->CheckRun() == false){
+        if(b->onTarget == true) { LcdDisplay();}
+        start = false;
+
+
+    }
 }
+
+
 
 }
 
@@ -467,5 +480,15 @@ ui->pushButtonDisconnect->setDisabled(true);
 ui->pushButtonStart->setDisabled(true);
 
 }
+
+}
+
+void MainWindow::on_radioButton_pressed()
+{
+
+}
+
+void MainWindow::on_doubleSpinBoxObsDis_valueChanged(const QString &arg1)
+{
 
 }

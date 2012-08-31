@@ -15,6 +15,8 @@ TS::TS() {
 
 
 	targets.resize(this->SickResolution());
+    tabuLSize = 0;
+   acceptObstacleDistance = 0.1;
 
 }
 
@@ -160,6 +162,12 @@ void TS::TabuLAdd(int tar){
 
 }
 
+void TS::SetTabuListSize(int size){
+
+tabuLSize = size;
+
+
+}
 void TS::TabuSearchMainAlgoritchm(){
 
 	this->CheckInTarget();
@@ -266,5 +274,11 @@ void TS::PrintTabuL(){
 		std::cout << "TL" << k << ": " << tabuL[k].tlValue << std::endl;
 
 	}
+
+}
+void TS::SetAcceptObstacleDistance(double var){
+
+
+acceptObstacleDistance = var;
 
 }

@@ -67,8 +67,8 @@ private:
 	   std::vector <Target> targets;
 	   int chosenDirection;  // 0 to lewy, 1 to prawy
 	   std::deque <TabuList> tabuL;
-	   static const int tabuLSize = 5;
-	   static const double acceptObstacleDistance = 0.1; //akceptowalne zbliżenie do przeszkody
+        int tabuLSize;
+        double acceptObstacleDistance; //akceptowalne zbliżenie do przeszkody
 
 
 public:
@@ -79,6 +79,8 @@ public:
 	   void PrintTargetFunction(int);
 	   void PrintTabuL();
 	   void TabuSearchMainAlgoritchm();
+       void SetTabuListSize(int); // wymiar listy tabu
+       void SetAcceptObstacleDistance(double);
 
 	   void TabuLAdd(int);
 	   bool TabuLCheck(int);
