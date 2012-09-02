@@ -16,10 +16,16 @@ public:
 			bool onTarget;
             bool onRun;
             bool runAlgo;
+            double dywerTime;
+            double distanceToTargetDywer;
+            int dywerFromGuiTime;
+            bool dywerFromGuiCheck;
+            double dywerRunTime;
 
 	void Test();
 	void run();
     bool CheckRun();
+    void DywerInit(bool,int,double);
 	//void Inicjalize();
 
 

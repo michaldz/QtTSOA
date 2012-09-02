@@ -85,9 +85,13 @@ private slots:
 
     void on_pushButtonDisconnect_clicked();
 
-    void on_radioButton_pressed();
+   // void on_radioButton_pressed();
 
     void on_doubleSpinBoxObsDis_valueChanged(const QString &arg1);
+
+    void on_spinBoxDywer_valueChanged(int arg1);
+
+    void on_doubleSpinBoxDywer_valueChanged(double arg1);
 
 private:
     Ui::MainWindow *ui;

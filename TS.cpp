@@ -237,6 +237,11 @@ void TS::TabuSearchMainAlgoritchm(){
 
 				break;
 			}
+            else
+            {
+                //dodaje kierunek główny kierunek robota do listy tabu
+                    TabuLAdd((int)targets[(i)].obstacleDegrees);
+            }
 
 
 		}
@@ -253,16 +258,22 @@ void TS::TabuSearchMainAlgoritchm(){
 }
 bool TS::TabuLCheck(int i){
 
+    if(aspiration){return false;}
+    else{
+
 	for(int j = 0 ; j < tabuLSize; j++){
 
 			if( targets[i].obstacleDegrees < (tabuL[j].tlValue +0.5) && targets[i].obstacleDegrees > (tabuL[j].tlValue -0.5))
 			{
 				return true;
 			}
+
 	}
+    return false;
+    }
 
 
-return false;
+
 
 }
 
@@ -280,5 +291,10 @@ void TS::SetAcceptObstacleDistance(double var){
 
 
 acceptObstacleDistance = var;
+
+}
+void TS::SetAspiration(bool aspir){
+
+aspiration = aspir;
 
 }

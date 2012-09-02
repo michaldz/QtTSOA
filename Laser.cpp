@@ -353,8 +353,8 @@ void Laser::NativeObstacleAvoid(){
 
                     sleep(0.5);
 					MoveTo(0.1,0);
-					//sleep(1);
-		}
+                    sleep(0.5);  //dodane
+        }
 }
 
 void Laser::NativeObstacleAvoid1(){
@@ -420,7 +420,7 @@ void Laser::NativeObstacleAvoid1(){
 				{
 				nativeObstacleAvoid = true;
 				MoveTo(0.2,-2);
-            sleep(0.5);
+                 sleep(0.5);
 				}
 
 

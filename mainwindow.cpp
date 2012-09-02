@@ -87,7 +87,8 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->pushButtonStop->setDisabled(true);
         ui->pushButtonStart->setDisabled(true);
         ui->doubleSpinBoxObsDis->setValue(0.1);
-
+        ui->spinBoxDywer->setValue(5);
+        ui->doubleSpinBoxDywer->setValue(1.5);
 
 
 
@@ -284,6 +285,10 @@ void MainWindow::StartAlgorithm(){
            a->tolerancy = ui->doubleSpinBoxT->value();
            a->SetTabuListSize(ui->spinBoxTabuList->value());
            a->SetAcceptObstacleDistance(ui->doubleSpinBoxObsDis->value());
+           a->DywerInit(ui->radioButtonDywer->isChecked(),ui->spinBoxDywer->value(),ui->doubleSpinBoxDywer->value());
+
+           if (ui->radioButtonAspiration->isChecked()){ a->SetAspiration(true); }
+           else {a->SetAspiration(false); }
 
            b = a;
            a->start();
@@ -334,7 +339,9 @@ void MainWindow::run()
 
     ///Sprawdzanie stanu algorytmu
     if(b->CheckRun() == false){
-        if(b->onTarget == true) { LcdDisplay();}
+        if(b->onTarget == true) { LcdDisplay();
+        ui->pushButtonStart->setDisabled(false);
+        }
         start = false;
 
 
@@ -483,12 +490,22 @@ ui->pushButtonStart->setDisabled(true);
 
 }
 
-void MainWindow::on_radioButton_pressed()
+//void MainWindow::on_radioButton_pressed()
+//{
+
+//}
+
+void MainWindow::on_doubleSpinBoxObsDis_valueChanged(const QString &arg1)
 {
 
 }
 
-void MainWindow::on_doubleSpinBoxObsDis_valueChanged(const QString &arg1)
+void MainWindow::on_spinBoxDywer_valueChanged(int arg1)
+{
+
+}
+
+void MainWindow::on_doubleSpinBoxDywer_valueChanged(double arg1)
 {
 
 }

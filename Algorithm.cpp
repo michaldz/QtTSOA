@@ -19,11 +19,17 @@ extern Position2dProxy *p2dProxy;
 Algorithm::Algorithm() {
 	// TODO Auto-generated constructor stub
 
+
+    dywerTime = 0;
+    distanceToTargetDywer = 0;
+    dywerFromGuiCheck = false;
+
 }
 
 Algorithm::~Algorithm() {
 	// TODO Auto-generated destructor stub
     p2dProxy->SetSpeed(0,0);
+
 }
 /*
 void Algorithm::Inicjalize(){
@@ -48,8 +54,10 @@ void Algorithm::Inicjalize(){
 
 void Algorithm::Test(){
 
+    if(dywerTime < dywerFromGuiTime || dywerFromGuiCheck == false )
 
-	//if (onTarget == false){
+    {
+        distanceToTargetDywer = this->distanceToTarget;
 	    this->ReadScan();
 		this->ReadDistanceToTarget();
 		this->ReadDegreesToTarget();
@@ -60,17 +68,55 @@ void Algorithm::Test(){
 		this->ClearLastScan();
 
 	    //this->CalculateTargetFunction();
-	    this->CalculateOffset();
+        this->CalculateOffset();
 	    this->NativeObstacleAvoid1();
         this->TabuSearchMainAlgoritchm();
         onTarget = this->CheckInTarget();
-	//}
-	//else
-	//{
-	//	this->MoveTo(0,0);
-	//	onTarget = this->CheckInTarget();
+    }
+    else if (dywerTime > dywerFromGuiTime && dywerFromGuiCheck == true)
+    {
+        for(int i = 0; i<dywerRunTime;i++)
+        {
+        this->ReadScan();
+        this->ReadDistanceToTarget();
+        this->ReadDegreesToTarget();
+        this->CalculateOffset();
+        //this->PrintValuesToConsole(10);
+        //this->PrintTargetFunction(10);
+        //this->PrintTabuL();
+        this->ClearLastScan();
 
-	//}
+        //this->CalculateTargetFunction();
+        this->CalculateOffset();
+
+        //Nadanie ruchu w przeciwną stronę
+            if(i == 0) {this->MoveTo(0.01,180); this->sleep(1); }
+        this->MoveTo(0.1,0);
+        this->NativeObstacleAvoid1();
+
+        //ToDO dodać ruch w losowym kierunku
+
+        onTarget = this->CheckInTarget();
+        this->sleep(0.1);
+        }
+
+        dywerTime = 0;
+    }
+
+
+
+
+        if(distanceToTargetDywer > this->distanceToTarget)
+        {
+
+            dywerTime = dywerTime + 0.1;
+
+        }
+        else
+        {
+        dywerTime = 0;
+        }
+
 
 
 }
@@ -106,4 +152,11 @@ void Algorithm::run(){
 bool Algorithm::CheckRun(){
 
 return onRun;
+}
+void Algorithm::DywerInit(bool radio, int spin,double run){
+
+    dywerFromGuiCheck = radio;
+    dywerFromGuiTime = spin;
+    dywerRunTime = run*10;
+
 }

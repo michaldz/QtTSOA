@@ -217,7 +217,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>470</x>
       <y>10</y>
       <width>221</width>
       <height>231</height>
@@ -236,7 +236,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxY">
@@ -249,7 +249,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxX">
@@ -262,7 +262,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="doubleSpinBoxR">
@@ -275,7 +275,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_9">
@@ -373,10 +373,10 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>670</x>
       <y>10</y>
-      <width>201</width>
-      <height>261</height>
+      <width>251</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="title">
@@ -385,14 +385,14 @@
     <widget class="QSpinBox" name="spinBoxTabuList">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>170</x>
        <y>40</y>
        <width>59</width>
        <height>27</height>
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_13">
@@ -431,7 +431,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>150</y>
+       <y>180</y>
        <width>171</width>
        <height>17</height>
       </rect>
@@ -444,7 +444,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>170</y>
+       <y>200</y>
        <width>201</width>
        <height>22</height>
       </rect>
@@ -460,7 +460,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>190</y>
+       <y>220</y>
        <width>211</width>
        <height>22</height>
       </rect>
@@ -472,8 +472,8 @@
     <widget class="QLabel" name="labelTime_2">
      <property name="geometry">
       <rect>
-       <x>46</x>
-       <y>220</y>
+       <x>70</x>
+       <y>240</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -485,8 +485,8 @@
     <widget class="QSpinBox" name="spinBoxMaxTime">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>220</y>
+       <x>170</x>
+       <y>240</y>
        <width>59</width>
        <height>27</height>
       </rect>
@@ -500,12 +500,48 @@
       <rect>
        <x>0</x>
        <y>110</y>
-       <width>131</width>
+       <width>161</width>
        <height>22</height>
       </rect>
      </property>
      <property name="text">
       <string>Dywersyfikacja</string>
+     </property>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBoxDywer">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>110</y>
+       <width>59</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxDywer">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>150</y>
+       <width>62</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>149</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Czas nienaprowadzania</string>
      </property>
     </widget>
    </widget>
@@ -592,7 +628,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
     </widget>
     <widget class="QLabel" name="label_16">
@@ -644,7 +680,7 @@
       </rect>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
      <property name="maximum">
       <number>10000</number>
@@ -681,7 +717,7 @@
     <property name="geometry">
      <rect>
       <x>670</x>
-      <y>270</y>
+      <y>290</y>
       <width>62</width>
       <height>27</height>
      </rect>
@@ -691,7 +727,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>270</y>
+      <y>290</y>
       <width>201</width>
       <height>31</height>
      </rect>

@@ -69,6 +69,7 @@ private:
 	   std::deque <TabuList> tabuL;
         int tabuLSize;
         double acceptObstacleDistance; //akceptowalne zbliżenie do przeszkody
+        bool aspiration;
 
 
 public:
@@ -81,6 +82,7 @@ public:
 	   void TabuSearchMainAlgoritchm();
        void SetTabuListSize(int); // wymiar listy tabu
        void SetAcceptObstacleDistance(double);
+       void SetAspiration(bool);
 
 	   void TabuLAdd(int);
 	   bool TabuLCheck(int);
