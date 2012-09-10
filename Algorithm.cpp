@@ -90,8 +90,8 @@ void Algorithm::Test(){
         this->CalculateOffset();
 
         //Nadanie ruchu w przeciwną stronę
-            if(i == 0) {this->MoveTo(0.01,180); this->sleep(1); }
-        this->MoveTo(0.1,0);
+            if(i == 0) {this->MoveTo(0.00,45); this->sleep(4); }
+        this->MoveTo(0.3,0);
         this->NativeObstacleAvoid1();
 
         //ToDO dodać ruch w losowym kierunku
@@ -106,16 +106,6 @@ void Algorithm::Test(){
 
 
 
-        if(distanceToTargetDywer > this->distanceToTarget)
-        {
-
-            dywerTime = dywerTime + 0.1;
-
-        }
-        else
-        {
-        dywerTime = 0;
-        }
 
 
 
@@ -138,6 +128,19 @@ void Algorithm::run(){
 
 
             this->sleep(0.1);
+
+
+            if(distanceToTargetDywer < this->distanceToTarget)
+            {
+
+                dywerTime = dywerTime + 0.1;
+
+            }
+            else
+            {
+            dywerTime = 0;
+            }
+
 
             if (onTarget == true || runAlgo == false)
             {

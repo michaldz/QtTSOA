@@ -21,22 +21,21 @@ class Laser {
 
 private:
 	std::vector <Sick> samplesVector;
-	//std::vector <Sick>::iterator it;
 	double distanceX;
 	double distanceY;
-    //static const double tolerancy = 0.1;
-
 public:
-	void ReadScan();
-	void ClearLastScan();
-	void PrintValuesToConsole();
-	void PrintValuesToConsole(int);
     double distanceToTarget;
     double degreesToTarget;
     double angleToTarget;
     double robotOrientationInDegrees;
     double laserRange;
     bool nativeObstacleAvoid;
+    double tolerancy;
+
+	void ReadScan();
+	void ClearLastScan();
+	void PrintValuesToConsole();
+	void PrintValuesToConsole(int);
     bool CheckInTarget();
     void Robotorientation();
     void ReadDistanceToTarget();
@@ -50,17 +49,11 @@ public:
 	void NativeObstacleAvoid();
 	void NativeObstacleAvoid1();
     double GetSpeed();
-    double tolerancy;
     double GetX();
     double GetY();
 
-
 	Laser();
 	virtual ~Laser();
-
-
-
-
 };
 
 #endif /* LASER_H_ */

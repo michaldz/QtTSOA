@@ -20,16 +20,6 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>830</x>
-      <y>430</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QwtPlot" name="speedPlot">
     <property name="geometry">
      <rect>

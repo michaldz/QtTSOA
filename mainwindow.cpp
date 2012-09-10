@@ -325,7 +325,7 @@ void MainWindow::CheckMaxTime(){
 
 void MainWindow::run()
 {
-    ui->lcdNumber->display(c);
+    //ui->lcdNumber->display(c);
     c++;
     CheckConn();
     if(start == true){
@@ -462,7 +462,7 @@ void MainWindow::on_pushButtonAbout_clicked()
 {
 
      QMessageBox::about(this,"O programie",QString :: fromUtf8(
-     "Praca Magisterska:\n\n Algorytm sterowania robotem mobilnym\n\n\nAutor:\n Michał Dziadosz\n michal.dziadosz@gmail.com\n\nPromotor\n dr. inż. Grzegorz Chwajoł"
+     "Praca Magisterska:\n\nPlanowanie ruchu robota mobilnego z wykorzystaniem metody Tabu Search\n\n\nAutor:\n Michał Dziadosz\n michal.dziadosz@gmail.com\n\nPromotor\n dr. inż. Grzegorz Chwajoł"
                                                                ));
 
 }

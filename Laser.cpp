@@ -359,69 +359,90 @@ void Laser::NativeObstacleAvoid(){
 
 void Laser::NativeObstacleAvoid1(){
 
-	double sumLeft, sumRight;
-	nativeObstacleAvoid = false;
-	this->CheckInTarget();
-			if (this->CheckInTarget() == true)
-			{
-				MoveTo(0,0);
+    double sumLeft, sumRight;
+    nativeObstacleAvoid = false;
+    this->CheckInTarget();
 
-			}
-			else{
+
+
+
+
+            if (this->CheckInTarget() == true)
+            {
+                MoveTo(0,0);
+
+            }
+            else{
 //front
-				for(int i = 60 ; i < 120 ; i++)
-					{
-						if(ReturnLastScan(i) < 0.5) //jeśli robot napotka przeszkode w zakresie kątowym sick 50-130 bliżej niż ...
-						{
-							nativeObstacleAvoid = true;
-							for(int j = 0; j< 50; j++)
-							{
-								sumLeft += ReturnLastScan(179 -j);
-								sumRight += ReturnLastScan(j);
-							}
-							if(sumLeft > sumRight )
-							{
-								MoveTo(0.0,45);
-							}
-							else
-							{
-								MoveTo(0.0,-45);
-							}
-				            break;
-                            sleep(0.5);
-							//MoveTo(0.1,0);
-						}
-					}
+                for(int i = 60 ; i < 120 ; i++)
+                    {
+                        if(ReturnLastScan(i) < 0.6) //jeśli robot napotka przeszkode w zakresie kątowym sick 50-130 bliżej niż ...
+                        {
+                            nativeObstacleAvoid = true;
+                            for(int j = 0; j< 50; j++)
+                            {
+                                sumLeft += ReturnLastScan(179 -j);
+                                sumRight += ReturnLastScan(j);
+                            }
+                            if(sumLeft > sumRight )
+                            {
 
-////Strona prawa
-				if(ReturnLastScan(0) < 0.7)
-									{
-										nativeObstacleAvoid = true;
-										MoveTo(0.0,20);
+                                MoveTo(0.0,45);
+
+                            }
+                            else
+                            {
+                                MoveTo(0.0,-45);
+                            }
+                            break;
+                            sleep(0.8);
+                            //MoveTo(0.1,0);
+                        }
+                    }
+
+
+                //if(ReturnLastScan(0)<ReturnLastScan(179))
+                ////Strona prawa
+                                    if(ReturnLastScan(0) < 0.9)
+                                                        {
+                                                            nativeObstacleAvoid = true;
+                                                            MoveTo(0.1,20);
+                                                            sleep(0.9);
+
+                                                        }
+
+                                    else if (ReturnLastScan(0) > 0.9 && ReturnLastScan(0) < 1.0)
+                                    {
+                                        nativeObstacleAvoid = true;
+                                        MoveTo(0.2,2);
+                                        sleep(0.5);
+                                    }
+                    ///Strona lewa
+                                    if(ReturnLastScan(179) < 0.9)
+                                    {
+                                        nativeObstacleAvoid = true;
+                                        MoveTo(0.1,-20);
+                                        sleep(0.5);
+                                    }
+
+                                    else if (ReturnLastScan(179) > 0.9 && ReturnLastScan(179) < 1.0)
+                                    {
+                                    nativeObstacleAvoid = true;
+                                    MoveTo(0.2,-2);
+                                    sleep(0.5);
+                                    }
+
+                                    if(ReturnLastScan(0)<ReturnLastScan(179) && ReturnLastScan(0) < 0.7)
+                                    {
+                                        MoveTo(0.1,20);
                                         sleep(0.5);
 
-									}
+                                    }
+                                    else if(ReturnLastScan(179) < 0.7){
+                                        MoveTo(0.1,-20);
+                                        sleep(0.5);
 
-				else if (ReturnLastScan(0) > 0.7 && ReturnLastScan(0) < 0.9)
-				{
-					nativeObstacleAvoid = true;
-					MoveTo(0.2,2);
-                    sleep(0.5);
-				}
-///Strona lewa
-				if(ReturnLastScan(179) < 0.7)
-				{
-					nativeObstacleAvoid = true;
-					MoveTo(0.0,-20);
-                    sleep(0.5);
-				}
-
-				else if (ReturnLastScan(179) > 0.7 && ReturnLastScan(179) < 0.9)
-				{
-				nativeObstacleAvoid = true;
-				MoveTo(0.2,-2);
-                 sleep(0.5);
-				}
+                                    }
 
 
 
